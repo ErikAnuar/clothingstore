@@ -53,12 +53,12 @@
           <div class="">
             <h5>CART Total</h5>
             <div class="d-flex justify-content-between">
-              <% for (let i=0; i<data.length; i++){
-            var sum = 0;
-            sum = Number(data[i].price) + sum;
-         }%>
+              <% var sum = 0 %>
+              <% for (let i=0; i<data.length; i++){ %>
+            <% sum = Number(data[i].price) + sum %>
+         <% } %>
               <h6>Subtotal</h6>
-              <p><%= sum %>%>T</p>
+              <p><%= sum %>T</p>
             </div>
             <div class="d-flex justify-content-between">
               <h6>Shipping</h6>

@@ -55,7 +55,7 @@
             <div class="d-flex justify-content-between">
               <% for (let i=0; i<data.length; i++){
             var sum = 0;
-            sum = data[i].price + sum;
+            sum = Number(data[i].price) + sum;
          }%>
               <h6>Subtotal</h6>
               <p><%= sum %>%>T</p>

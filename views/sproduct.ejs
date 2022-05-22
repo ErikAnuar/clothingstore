@@ -1,0 +1,49 @@
+<%- include("partials/header") -%>
+
+<section class="container sproduct my-5 pt-5">
+  <form action="/<%=data[0].typeofgood%>/<%=data[0]._id%>" method="post">
+  <div class="row mt-5">
+    <div class="col-lg-5 col-md-12 col-12">
+      <img class="img-fluid w-100 pb-1" src="<%=data[0].imagepath%>" alt="" id="MainImg">
+    </div>
+    <div class="col-lg-5 col-md-12 col-12">
+      <h3 class="py-4"><%=data[0].title%></h3>
+      <h2><%=data[0].price%>₸</h2>
+      <select class="my-3" name="">
+        <option>Size</option>
+        <option>XL</option>
+        <option>XXL</option>
+        <option>Small</option>
+        <option>Large</option>
+      </select>
+      <input type="number" value="1">
+      <button class="buy-btn">Add To Cart</button>
+      <h4 class="mt-5 mb-5">Product Details</h4>
+      <span><%=data[0].description%></span>
+    </div>
+  </div>
+  </form>
+</section>
+
+<script>
+  var MainImg = document.getElementById("MainImg")
+  var smallimg = document.getElementsByClassName("small-img");
+
+  smallimg[0].onclick = function() {
+    MainImg.src = smallimg[0].src;
+  }
+
+  smallimg[1].onclick = function() {
+    MainImg.src = smallimg[1].src;
+  }
+
+  smallimg[2].onclick = function() {
+    MainImg.src = smallimg[2].src;
+  }
+
+  smallimg[3].onclick = function() {
+    MainImg.src = smallimg[3].src;
+  }
+</script>
+
+<%- include("partials/footer") -%>

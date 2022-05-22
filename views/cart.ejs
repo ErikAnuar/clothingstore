@@ -1,0 +1,78 @@
+<%- include("partials/header") -%>
+
+<section class="pt-5 mt-5 container">
+  <h2 class="font-weight-bold pt-5">Shopping Cart</h2>
+</section>
+
+<section id="cart-container" class="container my-5">
+  <form action="/delete" method="post">
+    <table width="100%" border="1">
+      <thead>
+        <tr>
+          <td>Remove</td>
+          <td>Image</td>
+          <td>Product</td>
+          <td>Price</td>
+          <td>Quantity</td>
+          <td>Total</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i=0; i<data.length; i++){ %>
+        <tr>
+          <td><button type="submit" name="checkbox" value="<%=data[i]._id%>"><i class="fas fa-trash-alt"></i></button></td>
+          <td><img src="<%=data[i].imagepath%>" alt=""></td>
+          <td>
+            <h5><%=data[i].title%></h5>
+          </td>
+          <td>
+            <h5><%=data[i].price%></h5>
+          </td>
+          <td><input class="w-25 pl-1" value="1" type="number" name="" value=""></td>
+          <td>
+            <h5><%=data[i].price%></h5>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </form>
+</section>
+
+<section id="cart-bottom" class="container">
+  <div class="row">
+    <div class="coupon col-lg-6 col-md-6 col-12 mb-4">
+      <div class="">
+        <h5>COUPON</h5>
+        <p>Enter your coupon code if you have one.</p>
+        <input type="text" placeholder="Coupon Code">
+        <button class="buy-btn"">Apply Coupon</button>
+      </div>
+    </div>
+    <div class=" total col-lg-6 col-md-6 col-12 mb-4">
+          <div class="">
+            <h5>CART Total</h5>
+            <div class="d-flex justify-content-between">
+              <% for (let i=0; i<data.length; i++){
+            var sum = 0;
+            sum = data[i].price + sum;
+         }%>
+              <h6>Subtotal</h6>
+              <p><%= sum %>%>T</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h6>Shipping</h6>
+              <p>1500T</p>
+            </div>
+            <hr class="second-hr">
+            <div class="d-flex justify-content-between">
+              <h6>Total</h6>
+              <p><%= sum + 1500 %>T</p>
+            </div>
+            <button class="ml-auto buy-btn"><a href="/buy">PROCEED TO CHECKOUT</a></button>
+          </div>
+      </div>
+    </div>
+</section>
+
+<%- include("partials/footer") -%>

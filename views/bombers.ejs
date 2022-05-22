@@ -1,0 +1,26 @@
+<%- include("partials/header") -%>
+
+<section id="featured" class="my-5 pb-5 ">
+  <div class="container text-center mt-5 py-5">
+    <h3>BOMBERS</h3>
+    <hr>
+  </div>
+  <div class="row mx-auto container-fluid">
+  <%for (let i=0; i<data.length; i++){%>
+    <div class="product text-center col-lg-3 col-md-4 col-12">
+      <img class="img-fluid" src="<%=data[i].imagepath%>" alt="" width="320px" height="320px">
+      <div class="star">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <h5 class="p-name"><%=data[i].title%></h5>
+      <h4 class="p-price"><%=data[i].price%>₸</h4>
+      <a href="/bombers/<%=data[i]._id%>"><button class="buy-btn">BUY NOW</button></a>
+    </div>
+    <%}%>
+    </div>
+</section>
+<%- include("partials/footer") -%>

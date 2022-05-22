@@ -1,0 +1,52 @@
+<%- include("partials/header") -%>
+<form action="/createobject" method="post" enctype="multipart/form-data">
+  <div class="container">
+    <div class="mb-3">
+      <label for="">What type of good do you want to create?</label><br>
+      <select class="form-select" aria-label="Default select example" name="category">
+        <option selected>Open this select menu</option>
+        <option value="tshirts">Tshirt</option>
+        <option value="jeans">Jeans</option>
+        <option value="hoodies">Sweatshirt or hoodie</option>
+        <option value="accessories">Accessory</option>
+        <option value="bombers">Bomber</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Title</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Tshirt" name="titleofgood">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Price</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="10000" name="priceofgood">
+    </div>
+    <div class="mb-3">
+      <label>Where do you want to upload your image from?</label><br>
+      <input type="radio" name="imagepath" value="pc"> From PC <br> <input type="file" id="uploading" name="avatar"></label><br>
+      <label>
+        <input type="radio" name="imagepath" value="url"> Form URL <input type="text" class="form-control" id="urltext" name="urltext" placeholder="url" autocomplete="off"></label><br>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Product details</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptionofgood"></textarea>
+    </div>
+    <button type="submit" class="buy-btn" name="button">Submit</button>
+  </div>
+</form>
+<script type="text/javascript">
+  document.querySelectorAll('input[type="radio"]').forEach(e => {
+    e.addEventListener('change', function() {
+      if (this.value == "pc") {
+        uploading.style.display = "block";
+      } else {
+        uploading.style.display = "none";
+      }
+      if (this.value == "url") {
+        urltext.style.display = "block";
+      } else {
+        urltext.style.display = "none";
+      }
+    })
+  })
+</script>
+<%- include("partials/footer") -%>

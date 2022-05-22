@@ -1,0 +1,284 @@
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Bebas Neue', cursive;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body, body * {
+  font-family: 'Bebas Neue', cursive;
+}
+
+.logo {
+  margin-left: 12px;
+  transform: translateY(15%);
+}
+
+/* navbar */
+.navbar {
+  font-size: 12px;
+  letter-spacing: 0.1rem;
+}
+
+.list {
+  transform: translateY(20%);
+  margin: 0 20px;
+}
+
+.navbar .signin {
+  color: #515ce6;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.navbar .icon {
+  color: #515ce6;
+}
+
+.navbar-nav i {
+  padding: 0 12px;
+}
+
+.naflinks ul li::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #515ce6;
+  display: block;
+  margin: auto;
+  transition: 0.4s;
+}
+
+.naflinks ul li:hover::after {
+  width: 59%;
+}
+
+/* showcase */
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.showcase {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  background-color: #ECECEC;
+}
+
+.showcase img {
+  width: 100%;
+  display: block;
+}
+
+.showcase-col {
+  flex-basis: 33.14%;
+  position: relative;
+  overflow: hidden;
+  margin: 0px 1px;
+}
+
+.layer {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+
+.layer:hover {
+  background: rgba(124, 165, 255, 0.7);
+}
+
+.layer h3 {
+  width: 100%;
+  font-weight: 500;
+  color: white;
+  font-size: 26px;
+  bottom: 0;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: 0.5s;
+  font-weight: 500;
+}
+
+.layer:hover h3 {
+  bottom: 49%;
+  opacity: 1;
+}
+
+/* goods */
+.buy-btn {
+  font-size: 10px;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 13px 30px;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: grey;
+}
+
+.product {
+  margin-bottom: 30px;
+}
+
+/* location */
+.location {
+  width: 80%;
+  margin: auto;
+  padding: 80px 0;
+}
+
+.location h1 {
+  text-align: center;
+}
+
+.location iframe {
+  width: 100%;
+}
+
+/* location */
+.small-img-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.small-img-col {
+  flex-basis: 24%;
+  cursor: pointer;
+}
+
+.sproduct select {
+  display: block;
+  padding: 5px 10px;
+}
+
+.sproduct input {
+  width: 50px;
+  height: 40px;
+  padding-left: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.buy-btn {
+  opacity: 1;
+  transition: 0.3s all;
+}
+
+/* Cart */
+#cart-container {
+  overflow-x: auto
+}
+
+#cart-container table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  white-space: nowrap;
+}
+
+#cart-container table thead {
+  font-weight: 400;
+}
+
+#cart-container table thead td {
+  background-color: #515ce6;
+  color: white;
+  border: none;
+  padding: 6px 0;
+}
+
+#cart-container table thead td:nth-child(1) {
+  width: 100px;
+}
+
+#cart-container table thead td:nth-child(2), #cart-container table thead td:nth-child(3) {
+  width: 200px;
+}
+
+#cart-container table thead td:nth-child(4), #cart-container table thead td:nth-child(5), #cart-container table thead td:nth-child(6) {
+  width: 170px;
+}
+
+#cart-container table tbody img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+}
+
+#cart-container table tbody i {
+  color: gray;
+}
+
+#cart-bottom .coupon>div, #cart-bottom .total>div {
+  border: 1px solid #b6b3b3;
+}
+
+#cart-bottom .coupon h5, #cart-bottom .total h5 {
+  background-color: #515ce6;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-weight: 400;
+}
+
+#cart-bottom .coupon p, #cart-bottom .coupon input {
+  padding: 0 12px;
+}
+
+#cart-bottom .coupon input {
+  height: 44px;
+  margin: 0 0 20px 12px;
+}
+
+#cart-bottom .total div>div {
+  padding: 0 12px;
+}
+
+#cart-bottom .total h6 {
+  color: #2a2a2a;
+}
+
+.second-hr {
+  background: #b8b7b3;
+  width: 100%;
+  height: 1px;
+}
+
+#cart-bottom .total div>button {
+  margin: 0 12px 20px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Feedback */
+.feedback {
+  margin-top: 50px;
+}
+
+/* createpage */
+#uploading {
+  display: none;
+}
+
+#urltext {
+  display: none;
+}
+
+.gay{
+  position: -webkit-sticky;
+  position: sticky;
+}

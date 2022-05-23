@@ -83,7 +83,7 @@ const goodsSchema = mongoose.Schema({
   imagepath: String,
   description: String,
   typeofgood: String,
-  user: String
+  username1: String
 });
 
 const User = new mongoose.model("User", userSchema);
@@ -385,7 +385,8 @@ app.post("/jeans/:world", function(req, res) {
         title: found[0].title,
         price: found[0].price,
         description: found[0].description,
-        imagepath: found[0].imagepath
+        imagepath: found[0].imagepath,
+        user: req.session.passport.user
       })
       newobject.save()
       res.redirect("/jeans/" + req.params.world)
@@ -402,7 +403,8 @@ app.post("/hoodies/:world", function(req, res) {
         title: found[0].title,
         price: found[0].price,
         description: found[0].description,
-        imagepath: found[0].imagepath
+        imagepath: found[0].imagepath,
+        user: req.session.passport.user
       })
       newobject.save()
       res.redirect("/hoodies/" + req.params.world)
@@ -419,7 +421,8 @@ app.post("/accessories/:world", function(req, res) {
         title: found[0].title,
         price: found[0].price,
         description: found[0].description,
-        imagepath: found[0].imagepath
+        imagepath: found[0].imagepath,
+        user: req.session.passport.user
       })
       newobject.save()
       res.redirect("/accessories/" + req.params.world)
@@ -436,7 +439,8 @@ app.post("/bombers/:world", function(req, res) {
         title: found[0].title,
         price: found[0].price,
         description: found[0].description,
-        imagepath: found[0].imagepath
+        imagepath: found[0].imagepath,
+        user: req.session.passport.user
       })
       newobject.save()
       res.redirect("/bombers/" + req.params.world)
@@ -591,7 +595,7 @@ app.get("/bombers", upload.single("avatar"), function(req, res) {
 app.get("/cart", function(req, res) {
   if (req.isAuthenticated()) {
     cart.find({
-      user: req.session.passport.user
+      username1: req.session.passport.user
     }, function(err, found) {
       if (found) {
         res.render("cart", {
@@ -602,7 +606,7 @@ app.get("/cart", function(req, res) {
       }
     })
   } else {
-    res.redirect("/");
+    res.redirect("/login");
   }
 })
 

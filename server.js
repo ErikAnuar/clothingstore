@@ -368,7 +368,7 @@ app.post("/tshirts/:world", function(req, res) {
         price: found[0].price,
         description: found[0].description,
         imagepath: found[0].imagepath,
-        user: req.session.passport.user
+        username1: req.session.passport.user
       })
       newobject.save()
       res.redirect("/tshirts/" + req.params.world)
@@ -386,7 +386,7 @@ app.post("/jeans/:world", function(req, res) {
         price: found[0].price,
         description: found[0].description,
         imagepath: found[0].imagepath,
-        user: req.session.passport.user
+        username1: req.session.passport.user
       })
       newobject.save()
       res.redirect("/jeans/" + req.params.world)
@@ -404,7 +404,7 @@ app.post("/hoodies/:world", function(req, res) {
         price: found[0].price,
         description: found[0].description,
         imagepath: found[0].imagepath,
-        user: req.session.passport.user
+        username1: req.session.passport.user
       })
       newobject.save()
       res.redirect("/hoodies/" + req.params.world)
@@ -422,7 +422,7 @@ app.post("/accessories/:world", function(req, res) {
         price: found[0].price,
         description: found[0].description,
         imagepath: found[0].imagepath,
-        user: req.session.passport.user
+        username1: req.session.passport.user
       })
       newobject.save()
       res.redirect("/accessories/" + req.params.world)
@@ -440,7 +440,7 @@ app.post("/bombers/:world", function(req, res) {
         price: found[0].price,
         description: found[0].description,
         imagepath: found[0].imagepath,
-        user: req.session.passport.user
+        username1: req.session.passport.user
       })
       newobject.save()
       res.redirect("/bombers/" + req.params.world)

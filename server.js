@@ -82,7 +82,8 @@ const goodsSchema = mongoose.Schema({
   price: Number,
   imagepath: String,
   description: String,
-  typeofgood: String
+  typeofgood: String,
+  user: String
 });
 
 const User = new mongoose.model("User", userSchema);
@@ -590,7 +591,7 @@ app.get("/bombers", upload.single("avatar"), function(req, res) {
 app.get("/cart", function(req, res) {
   if (req.isAuthenticated()) {
     cart.find({
-      req.session.passport.user
+      user: req.session.passport.user
     }, function(err, found) {
       if (found) {
         res.render("cart", {

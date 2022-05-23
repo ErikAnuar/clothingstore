@@ -366,7 +366,8 @@ app.post("/tshirts/:world", function(req, res) {
         title: found[0].title,
         price: found[0].price,
         description: found[0].description,
-        imagepath: found[0].imagepath
+        imagepath: found[0].imagepath,
+        user: req.session.passport.user
       })
       newobject.save()
       res.redirect("/tshirts/" + req.params.world)
@@ -588,25 +589,19 @@ app.get("/bombers", upload.single("avatar"), function(req, res) {
 
 app.get("/cart", function(req, res) {
   if (req.isAuthenticated()) {
-    cart.find({req.session.passport.user}, function(err, found) {
-        if (found) {
-          res.render("cart", {
-            status: '200',
-            username: req.session.passport.user,
-            data: found
-          });
-        }
-      }
-    )
-} else {
-  cart.find({req.session.passport.user}, function(err, found) {
+    cart.find({
+      req.session.passport.user
+    }, function(err, found) {
       if (found) {
         res.render("cart", {
-          status: '404',
+          status: '200',
+          username: req.session.passport.user,
           data: found
         });
       }
     })
+  } else {
+    res.redirect("/");
   }
 })
 
@@ -712,6 +707,6 @@ app.post("/buy", function(req, res) {
   })
 })
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 3000, function() {
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });

@@ -588,7 +588,7 @@ app.get("/bombers", upload.single("avatar"), function(req, res) {
 
 app.get("/cart", function(req, res) {
   if (req.isAuthenticated()) {
-    cart.find(function(err, found) {
+    cart.find({req.session.passport.user}, function(err, found) {
         if (found) {
           res.render("cart", {
             status: '200',
@@ -599,7 +599,7 @@ app.get("/cart", function(req, res) {
       }
     )
 } else {
-  cart.find(function(err, found) {
+  cart.find({req.session.passport.user}, function(err, found) {
       if (found) {
         res.render("cart", {
           status: '404',

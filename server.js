@@ -359,21 +359,25 @@ app.get("/bombers/:aidishka", function(req, res) {
 })
 
 app.post("/tshirts/:world", function(req, res) {
-  tshirt.find({
-    _id: req.params.world
-  }, function(err, found) {
-    if (found) {
-      const newobject = new cart({
-        title: found[0].title,
-        price: found[0].price,
-        description: found[0].description,
-        imagepath: found[0].imagepath,
-        username1: req.session.passport.user
-      })
-      newobject.save()
-      res.redirect("/tshirts/" + req.params.world)
-    }
-  })
+  if (req.isAuthenticated()) {
+    tshirt.find({
+      _id: req.params.world
+    }, function(err, found) {
+      if (found) {
+        const newobject = new cart({
+          title: found[0].title,
+          price: found[0].price,
+          description: found[0].description,
+          imagepath: found[0].imagepath,
+          username1: req.session.passport.user
+        })
+        newobject.save()
+        res.redirect("/tshirts/" + req.params.world)
+      }
+    })
+  } else {
+    res.redirect("/login")
+  }
 })
 
 app.post("/jeans/:world", function(req, res) {

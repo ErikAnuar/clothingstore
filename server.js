@@ -381,75 +381,91 @@ app.post("/tshirts/:world", function(req, res) {
 })
 
 app.post("/jeans/:world", function(req, res) {
-  jeans.find({
-    _id: req.params.world
-  }, function(err, found) {
-    if (found) {
-      const newobject = new cart({
-        title: found[0].title,
-        price: found[0].price,
-        description: found[0].description,
-        imagepath: found[0].imagepath,
-        username1: req.session.passport.user
-      })
-      newobject.save()
-      res.redirect("/jeans/" + req.params.world)
-    }
-  })
+  if (req.isAuthenticated()){
+    jeans.find({
+      _id: req.params.world
+    }, function(err, found) {
+      if (found) {
+        const newobject = new cart({
+          title: found[0].title,
+          price: found[0].price,
+          description: found[0].description,
+          imagepath: found[0].imagepath,
+          username1: req.session.passport.user
+        })
+        newobject.save()
+        res.redirect("/jeans/" + req.params.world)
+      }
+    })
+  } else {
+    res.redirect("/login")
+  }
 })
 
 app.post("/hoodies/:world", function(req, res) {
-  SweatshirtsHoodies.find({
-    _id: req.params.world
-  }, function(err, found) {
-    if (found) {
-      const newobject = new cart({
-        title: found[0].title,
-        price: found[0].price,
-        description: found[0].description,
-        imagepath: found[0].imagepath,
-        username1: req.session.passport.user
-      })
-      newobject.save()
-      res.redirect("/hoodies/" + req.params.world)
-    }
-  })
+  if (req.isAuthenticated()){
+    SweatshirtsHoodies.find({
+      _id: req.params.world
+    }, function(err, found) {
+      if (found) {
+        const newobject = new cart({
+          title: found[0].title,
+          price: found[0].price,
+          description: found[0].description,
+          imagepath: found[0].imagepath,
+          username1: req.session.passport.user
+        })
+        newobject.save()
+        res.redirect("/hoodies/" + req.params.world)
+      }
+    })
+  } else {
+    res.redirect("/login")
+  }
 })
 
 app.post("/accessories/:world", function(req, res) {
-  accessory.find({
-    _id: req.params.world
-  }, function(err, found) {
-    if (found) {
-      const newobject = new cart({
-        title: found[0].title,
-        price: found[0].price,
-        description: found[0].description,
-        imagepath: found[0].imagepath,
-        username1: req.session.passport.user
-      })
-      newobject.save()
-      res.redirect("/accessories/" + req.params.world)
-    }
-  })
+  if (req.isAuthenticated()){
+    accessory.find({
+      _id: req.params.world
+    }, function(err, found) {
+      if (found) {
+        const newobject = new cart({
+          title: found[0].title,
+          price: found[0].price,
+          description: found[0].description,
+          imagepath: found[0].imagepath,
+          username1: req.session.passport.user
+        })
+        newobject.save()
+        res.redirect("/accessories/" + req.params.world)
+      }
+    })
+  } else {
+    res.redirect("/login")
+  }
 })
 
 app.post("/bombers/:world", function(req, res) {
-  bomber.find({
-    _id: req.params.world
-  }, function(err, found) {
-    if (found) {
-      const newobject = new cart({
-        title: found[0].title,
-        price: found[0].price,
-        description: found[0].description,
-        imagepath: found[0].imagepath,
-        username1: req.session.passport.user
-      })
-      newobject.save()
-      res.redirect("/bombers/" + req.params.world)
-    }
-  })
+  if (req.isAuthenticated()){
+    bomber.find({
+      _id: req.params.world
+    }, function(err, found) {
+      if (found) {
+        const newobject = new cart({
+          title: found[0].title,
+          price: found[0].price,
+          description: found[0].description,
+          imagepath: found[0].imagepath,
+          username1: req.session.passport.user
+        })
+        newobject.save()
+        res.redirect("/bombers/" + req.params.world)
+      }
+    })
+  } else {
+    res.redirect("/login")
+  }
 })
 
 app.get("/createobject", function(req, res) {
